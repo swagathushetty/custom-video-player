@@ -5,6 +5,7 @@ const progress = document.querySelector('.progress')
 const timestamp = document.querySelector('.timestamp')
 
 //play and pause video
+//refer docs 1.1
 function toggleVideoStatus(){
     if(video.paused){
         video.play()
@@ -14,6 +15,7 @@ function toggleVideoStatus(){
 }
 
 //update play/pause iconrqw
+//refer docs 1.2
 function updatePlayIcon(){
     if(video.paused){
         play.innerHTML='<i class="fa fa-play fa-2x"></i>'
@@ -23,6 +25,7 @@ function updatePlayIcon(){
 }
 
 //update progress and timestamp
+//refer docs 1.3
 function updateProgress(){
     progress.value=(video.currentTime/video.duration)*100;
 
@@ -43,21 +46,21 @@ function updateProgress(){
 }
 
 //set video time to progress
+//refer docs 1.4
 function setVideoProgress(){
     video.currentTime=(+progress.value*video.duration)/100
 }
 
 //stop video
+//refer docs 1.5
 function stopVideo(){
     video.currentTime=0;
     video.pause()
 }
 
 
-//event 
+//events
 video.addEventListener('click',toggleVideoStatus)
-
-
 video.addEventListener('pause', updatePlayIcon)
 video.addEventListener('play', updatePlayIcon)
 video.addEventListener('timeupdate', updateProgress)
